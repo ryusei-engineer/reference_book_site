@@ -5,13 +5,13 @@
   <div class="reference_books">
     <h2>参考書一覧</h2>
     <ul>
-      <a href="{{ route('reference_book1') }}"><li>参考書１</li></a>
-      <a href="{{ route('reference_book1') }}"><li>参考書２</li></a>
-      <a href="{{ route('reference_book1') }}"><li>参考書３</li></a>
-      <a href="{{ route('reference_book1') }}"><li>参考書４</li></a>
-      <a href="{{ route('reference_book1') }}"><li>参考書５</li></a>
-      <a href="{{ route('reference_book1') }}"><li>参考書６</li></a>
+      @foreach ($textbooks as $textbook)
+        <a href="{{ route('textbooks.show', $textbook->id)}}">
+          <li>{{ $textbook->booktitle }}</li>
+        </a>
+      @endforeach
     </ul>
   </div>
+  <a href="{{ route('textbooks.create') }}">新規登録</a>
 </main>
 @endsection

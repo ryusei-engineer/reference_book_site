@@ -2,11 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TextbookController;
+use App\Http\Controllers\TopController;
 
 
-Route::get('/', function () {
-    return view('index');
-})->name('index');
+
+Route::get('/', [TopController::class, 'index'])->name('index');
 
 Route::get('/reference_book1', function () {
     return view('reference_book1');
