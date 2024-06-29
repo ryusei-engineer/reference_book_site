@@ -1,7 +1,7 @@
 @extends('layouts.index')
 @section('title', 'top画面')
 @section('content')
-<main>
+<!-- <main>
   <div class="reviews">
     <h2>参考書1の口コミ一覧</h2>
     <div class="review">
@@ -29,5 +29,5 @@
     </div>
   </div>
   <a href="{{ route('index') }}">参考書一覧へ</a>
-</main>
+</main> -->
 @endsection
