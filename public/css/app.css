@@ -1,0 +1,45 @@
+*{
+  margin: 0;
+}
+
+h1{
+  margin: 12px;
+}
+
+header{
+  border-bottom: 1px solid #bbb;
+}
+
+.reference_books{
+  margin: 40px auto 0;
+  width: 600px;
+}
+ul{
+  padding: 0;
+}
+
+li{
+  padding: 8px;
+  list-style: none;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+}
+
+li + li {
+  border-top: none;
+}
+
+a{
+  text-decoration: none;
+  color: #000;
+}
+
+
+.reviews{
+  margin: 40px auto 0;
+  width: 600px;
+}
+
+.user_name{
+  font-weight: bold;
+}
