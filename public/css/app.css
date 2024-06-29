@@ -2,6 +2,14 @@
   margin: 0;
 }
 
+.btn{
+  font-size: 18px;
+  padding:2px;
+  color: #fff;
+  background-color: #3c6dff;
+  border-radius: 6px;
+}
+
 h1{
   margin: 12px;
 }

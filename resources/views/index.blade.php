@@ -12,6 +12,6 @@
       @endforeach
     </ul>
   </div>
-  <a href="{{ route('textbooks.create') }}">新規登録</a>
+  <a class="btn" href="{{ route('textbooks.create') }}">新規登録</a>
 </main>
 @endsection

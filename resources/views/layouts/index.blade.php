@@ -8,7 +8,7 @@
 </head>
 <body>
 <header>
-  <h1>参考書口コミアプリ</h1>
+  <h1>参考書口コミサイト</h1>
 </header>
   @yield('content')
 </body>

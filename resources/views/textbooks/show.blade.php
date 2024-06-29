@@ -3,10 +3,8 @@
 @section('content')
 <main>
   <div class="reviews">
-    <h2>参考書1の口コミ一覧</h2>
     <div class="reference_books">
-    <h2>{{ $textbook->booktitle }}</h2>
-
+    <h2>{{ $textbook->booktitle }}の口コミ一覧</h2>
 	<p> 書籍名: {{ $textbook->booktitle }} </p>
 	<p> 著者  : {{ $textbook->author }} </p>
 	<p> 出版社: {{ $textbook->publisher }} </p>
@@ -35,6 +33,6 @@
       </ul>
     </div>
   </div>
-  <a href="{{ route('index') }}">参考書一覧へ</a>
+  <a class="btn" href="{{ route('index') }}">参考書一覧へ</a>
 </main>
 @endsection
