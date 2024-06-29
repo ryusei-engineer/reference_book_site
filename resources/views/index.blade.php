@@ -1,11 +1,17 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <h1>テスト</h1>
-</body>
-</html>
+@extends('layouts.index')
+@section('title', 'top画面')
+@section('content')
+<main>
+  <div class="reference_books">
+    <h2>参考書一覧</h2>
+    <ul>
+      <a href="{{ route('reference_book1') }}"><li>参考書１</li></a>
+      <a href="{{ route('reference_book1') }}"><li>参考書２</li></a>
+      <a href="{{ route('reference_book1') }}"><li>参考書３</li></a>
+      <a href="{{ route('reference_book1') }}"><li>参考書４</li></a>
+      <a href="{{ route('reference_book1') }}"><li>参考書５</li></a>
+      <a href="{{ route('reference_book1') }}"><li>参考書６</li></a>
+    </ul>
+  </div>
+</main>
+@endsection
