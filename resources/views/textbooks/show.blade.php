@@ -2,11 +2,10 @@
 @section('title', '書籍詳細')
 @section('content')
 <main>
+	
 	<a href="{{ route('index') }}">一覧に戻る</a>
-  <div class="reference_books">
-    <h2>{{ $textbook->booktitle }}</h2>
-
-	<p> 書籍名: {{ $textbook->booktitle }} </p>
+  <div class="reference_books_detail">
+  <h2>{{ $textbook->booktitle }}</h2>
 	<p> 著者  : {{ $textbook->author }} </p>
 	<p> 出版社: {{ $textbook->publisher }} </p>
   </div>
@@ -44,7 +43,7 @@
 			<option value="desc">投稿日時の新しい順</option>
 			<option value="asc">投稿日時の古い順</option>
 		</select>
-		<button type="submit">口コミを全て表示</button>
+		<button type="submit">口コミを検索</button>
 	</form>
 
 	@if ($reviews->isEmpty())
@@ -52,7 +51,8 @@
 	@else
 		@foreach ($reviews as $review)
 		<div class="review">
-			<span><h3>{{ $review->reviewtitle }} </h3> {{ $review->created_at }} </span>
+			<h3>{{ $review->reviewtitle }}</h3>
+			<!-- <span>{{ $review->created_at }}</span> -->
 			<p>評価: {{ $review->rating }}</p>
 			<p>コメント: {{ $review->review }}</p>
 		</div>

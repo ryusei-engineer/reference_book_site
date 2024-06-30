@@ -3,21 +3,22 @@
 @section('content')
 <main>
   <div class="reference_books">
+    <div class="main_header">
     <h2>参考書一覧</h2>
-    <spanp>検索:</spanp>
-    <form action="{{ route('index') }}" method="GET">
+    <a class="btn" href="{{ route('textbooks.create') }}">新規登録</a>
+    </div>
+    <form class="
+search" action="{{ route('index') }}" method="GET">
       @csrf
-        <label for="keyword">キーワード:</label>
-        <input type="text" name="keyword">
+        <input class="keyword_input" type="text" name="keyword" placeholder="キーワード">
 
-        <label for="category_id">カテゴリー:</label>
-        <select name="category_id">
+        <select class="category_select" name="category_id">
           <option value="">選択してください</option>
           @foreach ($categories as $category)
             <option value="{{ $category->category_id }}">{{ $category->category_name }}</option>
           @endforeach
         </select>
-        <button type="submit">検索</button>
+        <button class="btn" type="submit">検索</button>
     </form>
 
     {{--<form action="{{ route('textbooks.search')}}" method="GET">
@@ -36,26 +37,5 @@
         @endforeach
     </ui>
   </div>
-
-  {{--
-  <div class="reviews">
-    @if (empty($reviews))
-      <h2>最新の口コミはありません</h2>
-    @else
-      <h2>新着の口コミ</h2>
-    @endif
-
-    <table>
-      @foreach($reviews as $review)
-      <tr>
-        {{--<th>{{ $review->textbook()->booktitle }}</th>--}}
-        {{--<th>{{ $review->reviewtitle }}</th>
-        <td>{{ $review->review }}</td>
-      </tr>
-      @endforeach
-    </table>
-  </div>--}}
-
-  <a href="{{ route('textbooks.create') }}">新規登録</a>
 </main>
 @endsection
