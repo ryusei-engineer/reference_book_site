@@ -84,3 +84,22 @@ a {
   width: 680px;
   margin: 0 auto;
 }
+
+
+
+.review h3{
+  margin: 0 0 2px;
+}
+
+.review{
+  margin: 6px 0 0;
+}
+
+.reference_books_detail{
+  padding:  6px;
+  width: 680px;
+  margin: 20px auto;
+  background: linear-gradient(to right,#2af598 0%, #00c19a 100%);
+  border-radius: 8px;
+}
+
