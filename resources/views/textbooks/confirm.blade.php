@@ -16,5 +16,5 @@
     <form action="{{ route('textbooks.create') }}" method="GET">
         <button type="submit">Back</button>
     </form>
-  </main>
-  @endsection
+</main>
+@endsection

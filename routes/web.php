@@ -2,20 +2,27 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TextbookController;
+use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\CategoryController;
 
+// TOP ページ
+Route::get('/', [TextbookController::class, 'index'])->name('index');
 
-Route::get('/', function () {
-    return view('index');
-})->name('index');
+Route::group(['prefix' => 'textbooks', 'as' => 'textbooks.'], function () {
+	Route::get('/', [TextbookController::class, 'index'])->name('index');
+	Route::get('/create', [TextbookController::class, 'create'])->name('create');
+	Route::post('/confirm', [TextbookController::class, 'confirm'])->name('confirm');
+	Route::post('/store', [TextbookController::class, 'store'])->name('store');
+	Route::get('/complete', [TextbookController::class, 'complete'])->name('complete');
+	Route::get('search', [TextbookController::class, 'search'])->name('search');
 
-Route::get('/reference_book1', function () {
-    return view('reference_book1');
-})->name('reference_book1');
+	// 一番下
+	Route::get('/{id}', [TextbookController::class, 'show'])->name('show');
+});
 
+Route::post('textbooks/{id}/review', [ReviewController::class, 'store'])->name('reviews.store');
 
-Route::get('/textbooks', [TextbookController::class, 'index'])->name('textbooks.index');
-Route::get('/textbooks/create', [TextbookController::class, 'create'])->name('textbooks.create');
-Route::post('/textbooks/confirm', [TextbookController::class, 'confirm'])->name('textbooks.confirm');
-Route::post('/textbooks/store', [TextbookController::class, 'store'])->name('textbooks.store');
-Route::get('/textbooks/complete', [TextbookController::class, 'complete'])->name('textbooks.complete');
-Route::get('/textbooks/{id}', [TextbookController::class, 'show'])->name('textbooks.show');
+// テスト表示用
+Route::get('/reviews', [ReviewController::class, 'index'])->name('reviews.index');
+Route::get('/category', [CategoryController::class, 'index'])->name('categories.index');
+Route::post('category', [CategoryController::class, 'store'])->name('categories.store');
