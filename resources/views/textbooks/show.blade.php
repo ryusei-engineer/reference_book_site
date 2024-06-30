@@ -2,6 +2,7 @@
 @section('title', '書籍詳細')
 @section('content')
 <main>
+	
 	<a href="{{ route('index') }}">一覧に戻る</a>
   <div class="reference_books">
     <h2>{{ $textbook->booktitle }}</h2>
@@ -52,7 +53,8 @@
 	@else
 		@foreach ($reviews as $review)
 		<div class="review">
-			<span><h3>{{ $review->reviewtitle }} </h3> {{ $review->created_at }} </span>
+			<h3>{{ $review->reviewtitle }}</h3>
+			<!-- <span>{{ $review->created_at }}</span> -->
 			<p>評価: {{ $review->rating }}</p>
 			<p>コメント: {{ $review->review }}</p>
 		</div>
