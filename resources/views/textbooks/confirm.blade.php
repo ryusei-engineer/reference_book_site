@@ -11,10 +11,10 @@
         <p>Title: {{ $textbook['title'] }}</p>
         <p>Author: {{ $textbook['author'] }}</p>
         <p>Publisher: {{ $textbook['publisher'] }}</p>
-        <button class="btn" type="submit">Register</button>
+        <button type="submit">Register</button>
     </form>
     <form action="{{ route('textbooks.create') }}" method="GET">
-        <button class="btn" type="submit">Back</button>
+        <button type="submit">Back</button>
     </form>
-  </main>
-  @endsection
+</main>
+@endsection

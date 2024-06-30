@@ -11,7 +11,7 @@
         <input type="text" id="author" name="author" required><br>
         <label for="publisher">Publisher:</label>
         <input type="text" id="publisher" name="publisher" required><br>
-        <button class="btn" type="submit">Confirm</button>
+        <button type="submit">Confirm</button>
     </form>
 </main>
 @endsection

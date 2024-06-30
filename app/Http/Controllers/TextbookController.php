@@ -4,13 +4,27 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Textbook;
+use App\Models\Review;
+use App\Models\Category;
 
 class TextbookController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $textbooks = Textbook::all();
-        return view('textbooks.index', compact('textbooks'));
+        $keyword = $request->input('keyword');
+        $category_id = $request->input('category_id');
+
+        $textbooks = Textbook::where('booktitle', 'like', "%$keyword%");
+
+        if (!empty($category_id)) {
+            $textbooks = $textbooks->where('category_id', $category_id); //->paginate(1);
+        }
+
+        $textbooks = $textbooks->get(); //->paginate(1);
+
+        $categories = Category::all();
+        $reviews = Review::limit(5)->get();
+        return view('index', compact('textbooks', 'categories', 'reviews'));
     }
 
     public function create()
@@ -46,9 +60,35 @@ class TextbookController extends Controller
         return view('textbooks.complete');
     }
 
-    public function show($id)
+    public function show(Request $request, $id)
     {
         $textbook = Textbook::find($id);
-        return view('textbooks.show', compact('textbook'));
+        $rating =  $request->input('rating');
+        $sorted = $request->input('sorted');
+
+        if (!empty($rating) || $rating != 0) {
+            $query = Review::where(['textbook_id' => $id, 'rating' => $rating]);
+        } else {
+            $query = Review::where('textbook_id', $id);
+        }
+
+        if ($sorted == "asc") {
+            $reviews = $query->orderBy('created_at', 'asc')->get();
+        } else {
+            $reviews = $query->orderBy('created_at', 'desc')->get();
+        }
+
+        return view('textbooks.show', compact('textbook', 'reviews'));
+    }
+
+    public function search(Request $request) {
+        $textbooks = Textbook::all();
+        $test = [];
+        foreach ($request->input('categories') as $value) {
+            $test = $value;
+        }
+
+        //$test = $request->input('categories');
+        return view('textbooks.search', compact('textbooks', 'test'));
     }
 }
